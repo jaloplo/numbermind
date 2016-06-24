@@ -1,8 +1,11 @@
 var express = require('express');
 
+var port = process.env.PORT || 8080;
+
+
 var app = new express();
-app.listen(8080, function(req, res, next) {
-    console.log('Listening on port ' + 8080 + '...');
+app.listen(port, function(req, res, next) {
+    console.log('Listening on port ' + port + '...');
 });
 
 app.use(function(req, res, next) {
