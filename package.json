@@ -1,0 +1,29 @@
+{
+  "name": "Numbermind",
+  "version": "0.0.1",
+  "description": "A mind game",
+  "main": "src/app.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaloplo/numbermind"
+  },
+  "keywords": [
+    "game",
+    "mind",
+    "numbers",
+    "cyphers"
+  ],
+  "author": "Jaime López López",
+  "license": "GPL3",
+  "bugs": {
+    "url": "https://github.com/jaloplo/numbermind/issues"
+  },
+  "homepage": "https://github.com/jaloplo/numbermind"
+}
