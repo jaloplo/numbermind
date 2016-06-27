@@ -4,11 +4,11 @@ var port = process.env.PORT || 1337;
 var app = new express();
 
 app.listen(port, function(req, res, next) {
-    console.log('Listening on port ' + port + '...');
+   //console.log('Listening on port ' + port + '...');
 });
 
 app.use(function(req, res, next) {
-    console.log('Request for ' + req.originalUrl + '...');
+    //console.log('Request for ' + req.originalUrl + '...');
     next();
 });
 
