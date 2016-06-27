@@ -10,7 +10,6 @@ app.get('/', function(req, res, next) {
 app.listen(port, function(req, res, next) {
     //console.log('Server listening on port ' + port);
     //console.log('Running...');
-    next();
 });
 
 /*
