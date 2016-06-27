@@ -8,11 +8,7 @@ app.listen(port, function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
-    try {
-        next();
-    } catch (err) {
-
-    }
+    next();
 });
 
 app.get('/', function(req, res, next) {
