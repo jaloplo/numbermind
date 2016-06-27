@@ -7,15 +7,6 @@ app.listen(port, function(req, res, next) {
    //console.log('Listening on port ' + port + '...');
 });
 
-app.use(function(req, res, next) {
-    //console.log('Request for ' + req.originalUrl + '...');
-    next();
-});
-
-app.use(function(req, res, next) {
-    res.status(404).send('Page not found');
-});
-
 app.get('/', function(req, res, next) {
     res.send('Hello from the root');
 });
