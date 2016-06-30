@@ -1,5 +1,26 @@
 {% extends 'master.html' %}
+{% import 'controls/input.html' as controls %}
 
 {% block content %}
-<h1>Hello from Numbermind</h1>
+<div class="ink-grid">
+    <div class="column-group">
+        <div class="all-100">
+            {{ controls.RenderGuessNumberBox('numberGuessed') }}
+        </div>
+        <div class="all-100">
+            <div class="all-30">
+                {{ controls.RenderLogger() }}
+            </div>
+            <div class="all-70">
+                {{ controls.RenderResultsTable() }}
+            </div>
+        </div>
+
+        <div class="all-100">
+            <div class="newgame-group">
+                <button type="button" class="newgame-button all-50 ink-button green">New Game</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

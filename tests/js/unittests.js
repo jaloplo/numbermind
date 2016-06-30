@@ -1,0 +1,1 @@
+var validatorTests = require('./validatorTests.js');

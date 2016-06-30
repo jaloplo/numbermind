@@ -12,6 +12,7 @@ var engine = nunjucks.configure('views', {
 });
 
 app.set('views', './views');
+app.use(express.static('static'));
 
 app.use(function(req, res, next) {
     console.log('[' + req.method + ']::' + req.originalUrl);
