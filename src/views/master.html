@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Numbermind</title>
-
+        <title>My Projects - {% block title %}{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="http://fastly.ink.sapo.pt/3.1.10/css/ink.css">
-        <script type="text/javascript" src="/js/mivu.js"></script>
-        <script type="text/javascript" src="/js/validators.js"></script>
-        <script type="text/javascript" src="/js/mvc.js"></script>
-        <script type="text/javascript" src="/js/numbermind.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://cdn.ink.sapo.pt/3.1.10/css/ink-flex.min.css">
+        {% block styles %}
+        {% endblock %}
+        {% block scripts %}
+        {% endblock %}
     </head>
     <body>
-        <div class="all-100">
+        <div class="ink-flex push-center">
             {% block content %}
             {% endblock %}
         </div>
+
+        <footer class="ink-flex push-center">
+            {% block footer %}
+            {% endblock %}
+        </footer>
     </body>
 </html>

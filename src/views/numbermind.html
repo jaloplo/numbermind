@@ -1,26 +1,129 @@
 {% extends 'master.html' %}
-{% import 'controls/input.html' as controls %}
+{% import 'controls/controls.html' as controls %}
+
+{% block title %}Numbermind{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/js/mivu.js"></script>
+<script type="text/javascript" src="/js/validators.js"></script>
+<script type="text/javascript" src="/js/mvc.js"></script>
+<script type="text/javascript" src="/js/numbermind.js"></script>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .page hr { border-width: 5px; border-top-color: rgba(15,117,218,.6); margin: 50px 0; }
+
+    .page .page-title { margin-top: 50px; }
+    .page .page-title h1 { font-size: 450%; margin-bottom: 0; }
+    .page .page-title small { font-size: 175%; margin-top: 0; }
+
+    .page .page-description { font-size: 150%; margin: 100px 0; }
+
+    .page .game { font-size: 150%; margin: 100px 0; }
+
+    .page .resultstable-list .orange { background-color: #ff9c00; color: white; }
+
+    .page .message { font-size: 250%; margin: 50px 0; }
+
+    footer { background-color: rgba(0,0,0, 0.1); padding-top: 50px; }
+
+    .projects ul li { font-size: 125%; }
+    .projects ul li img { height: 64px; }
+    .projects a { color: black; }
+
+    .hosted-by img { height: 64px; }
+
+    .made-by { background-color: rgba(0,0,0, 0.2); margin: 15px 0; }
+    .made-by p { padding-top: 15px; }
+</style>
+{% endblock %}
+
+
+{% block footer %}
+<section class="projects ink-flex all-100">
+    <header class="push-center all-100 align-center">
+        <h4 class="fw-300">Numbermind ha sido hecho gracias a los siguientes proyectos</h4>
+    </header>
+    <ul class="unstyled inline push-center all-100 align-center">
+        <li class="push-center"><a class="uppercase" href="https://nodejs.org"><img src="/img/nodejs_logo.png" /></a></li>
+        <li class="push-center"><a class="uppercase" href="https://ink.sapo.pt"><img src="/img/ink_logo.jpg" /></a></li>
+        <li class="push-center"><a class="uppercase" href="https://github.com"><img src="/img/github_logo.png" /></a></li>
+    </ul>
+</section>
+
+<section class="hosted-by ink-flex all-100">
+    <div class="push-center">
+        <a href="https://azure.microsoft.com"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Windows_Azure_logo.png" /></a>
+    </div>
+</section>
+
+<section class="made-by all-90">
+    <div class="align-center">
+        <p class="slab-700">Hecho por <a href="https://stackoverflow.com/jobs/cv/edit/45117#">Jaime López</a></p>
+    </div>
+</section>
+{% endblock %}
+
+
 
 {% block content %}
-<div class="ink-grid">
-    <div class="column-group">
-        <div class="all-100">
-            {{ controls.RenderGuessNumberBox('numberGuessed') }}
-        </div>
-        <div class="all-100">
-            <div class="all-30">
-                {{ controls.RenderLogger() }}
-            </div>
-            <div class="all-70">
-                {{ controls.RenderResultsTable() }}
+<article class="page all-50 small-auto tiny-auto">
+    <header class="page-title">
+        <h1 class="fw-100 uppercase">Numbermind</h1>
+        <small class="fw-100 uppercase">Usa tu cabeza para vencer a la máquina</small>
+    </header>
+
+    <hr />
+
+    <div class="page-description">
+        <p class="condensed-400">Numbermind es un juego mental que te propone adivinar el número de cuatro cifras que la máquina ha elegido. Es un juego muy parecido al mítico Mastermind pero en versión numérica.</p>
+
+        <section class="condensed-400">
+            <p>Las reglas son muy sencillas:</p>
+            <ol>
+                <li>el número no puede empezar por 0,</li>
+                <li>no puede haber cifras repetidas,</li>
+                <li>tienes 10 intentos.</li>
+            </ol>
+
+            <p>La máquina ya ha elegido un número, ¿te atreves a adivinarlo?</p>
+        </section>
+    </div>
+
+    <hr />
+
+    <div class="game condensed-400 ink-grid">
+        <div class="guessnumber ink-form all-100">
+            <div class="guessnumber-control control-group validation">
+                <label for="number_guessed">Escribe un número:</label>
+                <div class="control append-button">
+                    <span><input class="guessnumber-input" type="text" name="number_guessed" maxlength="4"/></span>                            
+                    <button type="button" class="guessnumber-send ink-button blue all-30">Probar</button>
+                </div>
+                <p class="tip guessnumber-message"></p>
             </div>
         </div>
 
-        <div class="all-100">
-            <div class="newgame-group">
-                <button type="button" class="newgame-button all-50 ink-button green">New Game</button>
+        <div class="resultstable all-100">
+            <div class="resultstable-group align-center">
+                <table class="resultstable-list ink-table">
+                </table>
+            </div>
+        </div>
+
+            <div class="message all-100">
+                <div class="message-group align-center">
+                    <p class="message-text"></p>
+                </div>
+            </div>
+
+            <div class="newgame ink-flex all-100">
+                <div class="newgame-group push-center all-75">
+                    <button type="button" class="newgame-button all-100 ink-button blue">Jugar de nuevo</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</article>
 {% endblock %}
